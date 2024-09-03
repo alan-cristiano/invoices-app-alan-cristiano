@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "User" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL
@@ -8,7 +8,7 @@ CREATE TABLE "User" (
 
 -- CreateTable
 CREATE TABLE "Customer" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" TEXT NOT NULL PRIMARY KEY,
     "name" TEXT NOT NULL,
     "email" TEXT NOT NULL,
     "image_url" TEXT NOT NULL
@@ -16,17 +16,17 @@ CREATE TABLE "Customer" (
 
 -- CreateTable
 CREATE TABLE "Invoice" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" TEXT NOT NULL PRIMARY KEY,
     "amount" INTEGER NOT NULL,
     "status" TEXT NOT NULL,
     "date" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "customer_id" INTEGER NOT NULL,
+    "customer_id" TEXT NOT NULL,
     CONSTRAINT "Invoice_customer_id_fkey" FOREIGN KEY ("customer_id") REFERENCES "Customer" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
 CREATE TABLE "Revenue" (
-    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "id" TEXT NOT NULL PRIMARY KEY,
     "month" TEXT NOT NULL,
     "revenue" INTEGER NOT NULL
 );

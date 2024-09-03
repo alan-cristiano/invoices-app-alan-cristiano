@@ -4,10 +4,12 @@ import { z } from "zod";
 import { prisma } from "./prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
+import { signIn } from "@/auth";
+import { AuthError } from "next-auth";
 
 const formSchema = z.object({
-    id: z.number(),
-    customerId: z.coerce.number().gt(0, {
+    id: z.string(),
+    customerId: z.string({
         message: "Please select a customer.",
     }),
     amount: z.coerce
@@ -67,7 +69,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
 }
 
 export async function updateInvoice(
-    id: number,
+    id: string,
     prevState: State,
     formData: FormData
 ) {
@@ -106,7 +108,7 @@ export async function updateInvoice(
     redirect("/dashboard/invoices");
 }
 
-export async function deleteInvoice(id: number) {
+export async function deleteInvoice(id: string) {
     // throw new Error("Failed to Delete Invoice");
     try {
         await prisma.invoice.delete({ where: { id: id } });
@@ -116,4 +118,23 @@ export async function deleteInvoice(id: number) {
         };
     }
     revalidatePath("/dashboard/invoices");
+}
+
+export async function authenticate(
+    prevState: string | undefined,
+    formData: FormData
+) {
+    try {
+        await signIn("credentials", formData);
+    } catch (error) {
+        if (error instanceof AuthError) {
+            switch (error.type) {
+                case "CredentialsSignin":
+                    return "Invalid credentials.";
+                default:
+                    return "Something went wrong.";
+            }
+        }
+        throw error;
+    }
 }

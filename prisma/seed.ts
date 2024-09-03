@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcrypt";
 
 const prisma = new PrismaClient();
 
@@ -18,31 +19,34 @@ main()
     });
 
 async function createUsers() {
+    const DEFAULT_PASSWORD = "123456";
+    const HASHED_PASSWORD = await bcrypt.hash(DEFAULT_PASSWORD, 10);
+
     const alice = await prisma.user.upsert({
-        where: { email: "alice@prisma.io" },
+        where: { email: "alice@mail.io" },
         update: {},
         create: {
-            email: "alice@prisma.io",
+            email: "alice@mail.io",
             name: "Alice",
-            password: "123456",
+            password: HASHED_PASSWORD,
         },
     });
     const bob = await prisma.user.upsert({
-        where: { email: "bob@prisma.io" },
+        where: { email: "bob@mail.io" },
         update: {},
         create: {
-            email: "bob@prisma.io",
+            email: "bob@mail.io",
             name: "Bob",
-            password: "123456",
+            password: HASHED_PASSWORD,
         },
     });
     const john = await prisma.user.upsert({
-        where: { email: "john@prisma.io" },
+        where: { email: "john@mail.io" },
         update: {},
         create: {
-            email: "john@prisma.io",
+            email: "john@mail.io",
             name: "John",
-            password: "123456",
+            password: HASHED_PASSWORD,
         },
     });
     console.log({ alice, bob, john });
@@ -50,11 +54,11 @@ async function createUsers() {
 
 async function createCustomers() {
     const jack = await prisma.customer.upsert({
-        where: { email: "jack@prisma.io" },
+        where: { email: "jack@mail.io" },
         update: {},
         create: {
             name: "Jack",
-            email: "jack@prisma.io",
+            email: "jack@mail.io",
             image_url: "/customers/blue-circle.png",
             invoices: {
                 create: [
@@ -83,11 +87,11 @@ async function createCustomers() {
         },
     });
     const jess = await prisma.customer.upsert({
-        where: { email: "jess@prisma.io" },
+        where: { email: "jess@mail.io" },
         update: {},
         create: {
             name: "Jess",
-            email: "jess@prisma.io",
+            email: "jess@mail.io",
             image_url: "/customers/red-circle.png",
             invoices: {
                 create: [

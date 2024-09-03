@@ -1,32 +1,39 @@
+export type User = {
+    id: string;
+    name: string;
+    email: string;
+    password: string;
+};
+
 export type Revenue = {
     month: string;
     revenue: number;
 };
 
 export type CustomerField = {
-    id: number;
+    id: string;
     name: string;
     email: string;
     image_url: string;
 };
 
 export type Invoice = {
-    id: number;
+    id: string;
     amount: number;
     status: string;
     date: Date;
-    customer_id: number;
+    customer_id: string;
 };
 
 export type InvoiceForm = {
-    id: number;
+    id: string;
     amount: number;
     status: string;
-    customer_id: number;
+    customer_id: string;
 };
 
 export type FormattedCustomersTable = {
-    id: number;
+    id: string;
     name: string;
     email: string;
     image_url: string;

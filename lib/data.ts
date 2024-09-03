@@ -194,7 +194,7 @@ export async function fetchFilteredCustomers(query: string) {
     }
 }
 
-export async function fetchInvoiceById(id: number) {
+export async function fetchInvoiceById(id: string) {
     try {
         const data = (await prisma.invoice.findUnique({
             where: { id: id },

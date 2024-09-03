@@ -1,4 +1,4 @@
-import AppLogo from "@/components/home-page/app-logo";
+import AppLogo from "@/components/app-logo";
 import LoginButton from "@/components/home-page/login-button";
 import { lusitana } from "@/fonts";
 import Image from "next/image";
@@ -14,7 +14,8 @@ export default function Page() {
                     <p
                         className={`${lusitana.className} text-xl text-gray-800 md:text-3xl md:leading-normal`}
                     >
-                        <strong>Seja bem vindo</strong> ao Tech Invoices App
+                        <strong>Seja bem vindo</strong> ao InvApp - seu App para
+                        gerenciamento de Invoices
                     </p>
                     <LoginButton />
                 </div>

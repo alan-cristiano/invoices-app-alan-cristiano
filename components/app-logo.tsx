@@ -7,7 +7,7 @@ export default function AppLogo() {
             className={`${lusitana.className} flex flex-row items-center leading-none text-white`}
         >
             <ChartBarSquareIcon className="h-12 w-12" />
-            <p className="text-[44px] ">App</p>
+            <p className="text-[44px] ">InvApp</p>
         </div>
     );
 }
