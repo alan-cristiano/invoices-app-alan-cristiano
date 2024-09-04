@@ -3,7 +3,6 @@ import AppLogo from "../app-logo";
 import { PowerIcon } from "@heroicons/react/24/outline";
 import NavLinks from "./nav-links";
 import { signOut } from "@/auth";
-import { redirect } from "next/navigation";
 
 export default function SideNav() {
     return (

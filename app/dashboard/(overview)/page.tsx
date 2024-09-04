@@ -2,6 +2,11 @@ import CardWrapper from "@/components/dashboard/overview/cards";
 import { LatestInvoices } from "@/components/dashboard/overview/latest-invoices";
 import { RevenueChart } from "@/components/dashboard/overview/revenue-chart";
 import { lusitana } from "@/fonts";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Dashboard",
+};
 
 export default async function Page() {
     return (

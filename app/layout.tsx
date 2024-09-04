@@ -6,10 +6,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: {
-        template: "%s | Tech Dashboard",
-        default: "Tech Dashboard",
+        template: "%s | InvApp",
+        default: "InvApp",
     },
-    description: "Free app to manage all invoices of your company",
+    description: "The only app you need to manage all invoices of your company",
 };
 
 export default function RootLayout({

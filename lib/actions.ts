@@ -109,7 +109,6 @@ export async function updateInvoice(
 }
 
 export async function deleteInvoice(id: string) {
-    // throw new Error("Failed to Delete Invoice");
     try {
         await prisma.invoice.delete({ where: { id: id } });
     } catch (error) {
