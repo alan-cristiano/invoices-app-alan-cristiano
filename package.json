@@ -1,6 +1,7 @@
 {
     "private": true,
     "scripts": {
+        "migrate:dev": "npx prisma migrate dev",
         "build": "next build",
         "dev": "next dev",
         "start": "next start",

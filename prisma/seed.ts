@@ -22,43 +22,26 @@ async function createUsers() {
     const DEFAULT_PASSWORD = "123456";
     const HASHED_PASSWORD = await bcrypt.hash(DEFAULT_PASSWORD, 10);
 
-    const alice = await prisma.user.upsert({
-        where: { email: "alice@mail.io" },
-        update: {},
-        create: {
-            email: "alice@mail.io",
-            name: "Alice",
-            password: HASHED_PASSWORD,
-        },
-    });
-    const bob = await prisma.user.upsert({
-        where: { email: "bob@mail.io" },
-        update: {},
-        create: {
-            email: "bob@mail.io",
-            name: "Bob",
-            password: HASHED_PASSWORD,
-        },
-    });
     const john = await prisma.user.upsert({
-        where: { email: "john@mail.io" },
+        where: { email: "johndoe@johndoe.io" },
         update: {},
         create: {
-            email: "john@mail.io",
+            email: "johndoe@johndoe.io",
             name: "John",
             password: HASHED_PASSWORD,
         },
     });
-    console.log({ alice, bob, john });
+
+    console.log({ john });
 }
 
 async function createCustomers() {
     const jack = await prisma.customer.upsert({
-        where: { email: "jack@mail.io" },
+        where: { email: "jack@jack.io" },
         update: {},
         create: {
             name: "Jack",
-            email: "jack@mail.io",
+            email: "jack@jack.io",
             image_url: "/customers/blue-circle.png",
             invoices: {
                 create: [
@@ -87,11 +70,11 @@ async function createCustomers() {
         },
     });
     const jess = await prisma.customer.upsert({
-        where: { email: "jess@mail.io" },
+        where: { email: "jess@jess.io" },
         update: {},
         create: {
             name: "Jess",
-            email: "jess@mail.io",
+            email: "jess@jess.io",
             image_url: "/customers/red-circle.png",
             invoices: {
                 create: [
