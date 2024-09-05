@@ -6,8 +6,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: {
-        template: "%s | InvApp",
-        default: "InvApp",
+        template: "%s | App",
+        default: "App",
     },
     description: "The only app you need to manage all invoices of your company",
 };

@@ -1,4 +1,4 @@
-# InvApp
+# Invoices App
 
 ## Descrição
 
