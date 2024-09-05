@@ -9,6 +9,7 @@
 -   Utilização da funcionalidade de streaming e pré renderização parcial das rotas, viabilizando assim uma melhor performance da aplicação e consequentemente melhor experiência para o usuário;
 -   Tratamento customizado de erros;
 -   Otimização de metadados da aplicação visando otimização de SEO;
+-   Aplicação responsiva para visualização em diferentes dispositivos.
 
 ## Tecnologias utilizadas
 
