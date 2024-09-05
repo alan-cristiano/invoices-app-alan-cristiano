@@ -80,8 +80,16 @@ Esse projeto utiliza as seguintes variáveis de ambiente:
 
 ## Migração e seed do banco de dados
 
+Migração das tabelas do banco de dados:
+
 ```bash
 pnpm run migrate:dev
+```
+
+Por se tratar de uma aplicação simulada, é necessário popular o banco de dados com informações fictícias:
+
+```bash
+npx prisma db seed
 ```
 
 ## Inicialização da aplicação
